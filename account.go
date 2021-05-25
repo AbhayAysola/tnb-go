@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"crypto"
 	"encoding/hex"
+	"errors"
 
 	"github.com/kevinburke/nacl/sign"
 )
@@ -20,11 +21,11 @@ func CreateAccount(signingKeyHex string) (Account, error) {
 
 		signingKeyByte, err := hex.DecodeString(signingKeyHex)
 		if err != nil {
-			return Account{}, err
+			return Account{}, errors.New("invalid signingKeyHex")
 		}
 		accountNumber, signingKey, err := sign.Keypair(bytes.NewReader(signingKeyByte))
 		if err != nil {
-			return Account{}, err
+			return Account{}, errors.New("invalid signingKeyHex")
 		}
 		return Account{SigningKey: signingKey, accountNumber: accountNumber, SigningKeyHex: signingKeyHex, AccountNumberHex: hex.EncodeToString(accountNumber)}, nil
 	} else {
