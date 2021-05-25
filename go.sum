@@ -1,0 +1,4 @@
+filippo.io/edwards25519 v1.0.0-beta.3 h1:WQxB0FH5NzrhciInJ30bgL3soLng3AbdI651yQuVlCs=
+filippo.io/edwards25519 v1.0.0-beta.3/go.mod h1:X+pm78QAUPtFLi1z9PYIlS/bdDnvbCOGKtZ+ACWEf7o=
+github.com/kevinburke/nacl v0.0.0-20210405173606-cd9060f5f776 h1:W8T7zJRO9imecUZySwPkuXHosjp2MloqAY1eSAEEOIo=
+github.com/kevinburke/nacl v0.0.0-20210405173606-cd9060f5f776/go.mod h1:VUp2yfq+wAk8hMl3NNN34fXjzUD9xMpGvUL8eSJz9Ns=
