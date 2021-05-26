@@ -43,7 +43,7 @@ func (account Account) CreateSignature(message string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return hex.EncodeToString(signatureByte), err
+	return (hex.EncodeToString(signatureByte))[0:128], err
 }
 
 func VerifySignature(signatureHex string, accountNumberHex string) bool {
@@ -51,7 +51,7 @@ func VerifySignature(signatureHex string, accountNumberHex string) bool {
 	if err != nil {
 		return false
 	}
-	signature, err := hex.DecodeString(signatureHex)
+	signature, err := hex.DecodeString(signatureHex + "6869")
 	if err != nil {
 		return false
 	}
