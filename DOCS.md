@@ -65,7 +65,7 @@ This method takes in 2 parameters and returns a single value.
 It is used to check if an accountNumber and signingKey match.
 
 ```Golang
-matched := account.VerifySignature("signingKeyHex", "accountNumberHex")
+matched := account.VerifyKeyPair("signingKeyHex", "accountNumberHex")
 print(matched)
 // true or false
 ```
