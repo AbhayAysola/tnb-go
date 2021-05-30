@@ -13,3 +13,7 @@ Find a bug, make a Pull Request, any contributions are welcome.
 Make sure you run `go fmt` and `go test` before and after making any changes.
 
 Write tests for any new feature.
+
+## Documentation
+
+You can find the [generated docs](https://pkg.go.dev/github.com/AbhayAysola/tnb-go) or open the [DOCS.md](https://github.com/AbhayAysola/tnb-go/blob/main/DOCS.md) file.
