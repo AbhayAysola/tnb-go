@@ -3,6 +3,7 @@ package account
 import (
 	"testing"
 )
+
 func TestCreateAccountFromValidSigningKey(t *testing.T) {
 	signingKeyHex := "74938d383000114b75f998f49d369dc98ffdb3bfef0f90744056e0165104b1ed"
 	acc, err := CreateAccount(signingKeyHex)
