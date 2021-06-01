@@ -38,7 +38,7 @@ func CreateAccount(signingKeyHex string) (Account, error) {
 	}
 }
 
-func (account Account) CreateSignature(message string) (string, error) {
+func (account *Account) CreateSignature(message string) (string, error) {
 	signatureByte, err := account.SigningKey.Sign(nil, []byte(message), crypto.Hash(0))
 	if err != nil {
 		return "", err
