@@ -21,3 +21,31 @@ func GetRequest(url string, params map[string]interface{}, target interface{}) e
 	}
 	return nil
 }
+
+func PostRequest(url string, params map[string]interface{}, body interface{}, target interface{}) error {
+	client := req.New()
+	params["format"] = "json"
+	res, err := client.Post(url, defaultHeader, req.Param(params), req.BodyJSON(body))
+	if err != nil {
+		return errors.New("error making request: " + err.Error())
+	}
+	err = res.ToJSON(target)
+	if err != nil {
+		return errors.New("error parsing response: " + err.Error())
+	}
+	return nil
+}
+
+func PatchRequest(url string, params map[string]interface{}, body interface{}, target interface{}) error {
+	client := req.New()
+	params["format"] = "json"
+	res, err := client.Patch(url, defaultHeader, req.Param(params), req.BodyJSON(body))
+	if err != nil {
+		return errors.New("error making request: " + err.Error())
+	}
+	err = res.ToJSON(target)
+	if err != nil {
+		return errors.New("error parsing response: " + err.Error())
+	}
+	return nil
+}
