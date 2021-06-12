@@ -15,6 +15,9 @@ func GetRequest(url string, params map[string]interface{}, target interface{}) e
 	if err != nil {
 		return errors.New("error making request: " + err.Error())
 	}
+	if res.Response().StatusCode != 200 {
+		return errors.New("error making request: " + res.Response().Status)
+	}
 	err = res.ToJSON(&target)
 	if err != nil {
 		return errors.New("error parsing response: " + err.Error())
@@ -29,6 +32,9 @@ func PostRequest(url string, params map[string]interface{}, body interface{}, ta
 	if err != nil {
 		return errors.New("error making request: " + err.Error())
 	}
+	if res.Response().StatusCode != 200 {
+		return errors.New("error making request: " + res.Response().Status)
+	}
 	err = res.ToJSON(target)
 	if err != nil {
 		return errors.New("error parsing response: " + err.Error())
@@ -42,6 +48,9 @@ func PatchRequest(url string, params map[string]interface{}, body interface{}, t
 	res, err := client.Patch(url, defaultHeader, req.Param(params), req.BodyJSON(body))
 	if err != nil {
 		return errors.New("error making request: " + err.Error())
+	}
+	if res.Response().StatusCode != 200 {
+		return errors.New("error making request: " + res.Response().Status)
 	}
 	err = res.ToJSON(target)
 	if err != nil {
